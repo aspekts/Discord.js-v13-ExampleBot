@@ -1,0 +1,1 @@
+# Example Discord.js v13 Bot!
