@@ -2,7 +2,7 @@ module.exports = async (client, message) => {
     if (!message.guild || message.author.bot) return;
 
     const [cmd, ...args] = message.content
-        .slice(client.config.prefix.length)
+        .slice(process.env.prefix.length)
         .trim()
         .split(" ");
 
