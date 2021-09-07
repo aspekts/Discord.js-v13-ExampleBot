@@ -1,4 +1,4 @@
-module.exports = (client, message) => {
+module.exports = async (client, message) => {
     if (!message.guild || message.author.bot) return;
 
     const [cmd, ...args] = message.content

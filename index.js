@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { Client, Collection } = require('discord.js');
 const colors = require('colors');
 
@@ -8,9 +9,10 @@ const client = new Client({
 client.commands = new Collection();
 client.aliases = new Collection();
 client.interactions = new Collection();
+client.config = require('./src/utils/Json/botconfig.json');
 
 ['command', 'event', 'interaction'].forEach(handler => {
     require(`./src/handlers/${handler}`)(client)
 });
 
-client.login();
+client.login(process.env.token);

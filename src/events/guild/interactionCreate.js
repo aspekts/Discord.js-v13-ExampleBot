@@ -1,4 +1,4 @@
-module.exports = (client, interaction) => {
+module.exports = async (client, interaction) => {
     if (interaction.isCommand()) {
         const cmd = client.interactions.get(interaction.commandName);
 
