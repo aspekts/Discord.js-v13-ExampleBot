@@ -1,14 +1,14 @@
 module.exports = async (client, interaction) => {
     if (interaction.isCommand()) {
-        const cmd = client.interactions.get(interaction.commandName);
+        const command = client.interactions.get(interaction.commandName);
 
         const args = [];
 
-        if (!cmd) return interaction.reply({
+        if (!command) return interaction.reply({
             content: "Something Went Wrong"
         });
 
-        cmd.run(client, interaction, args);
+        command.run(client, interaction, args);
     }
 
     if (interaction.isContextMenu()) {

@@ -29,7 +29,7 @@ module.exports = (client) => {
     console.log(table.toString().cyan);
 
     client.on("ready", async () => {
-        await client.guilds.cache.get("guild-id-here").commands.set(slash);
+        await client.guilds.cache.get("849979798952738847").commands.set(slash);
 
         /* To register to every server your bot is in do: 
         await client.application.commands.set(slash);*/
