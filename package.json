@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Lukass-0069/Discord.js-v13-ExampleBot.git"
   },
+  "keywords" : [],
   "author": "Lukass#0006",
   "license": "ISC",
   "bugs": {
