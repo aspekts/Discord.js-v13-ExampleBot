@@ -1,12 +1,13 @@
 const fs = require("fs");
 const ascii = require("ascii-table");
 
-const table = new ascii("MonoMusic's Events");
-table.setHeading("Events", "Status");
 
-const allevents = [];
 
 module.exports = async (client) => {
+    const table = new ascii(`Events`);
+        table.setHeading("Events", "Status");
+
+const allevents = [];
     const load_dir = (dir) => {
         const event_files = fs.readdirSync(`./src/events/${dir}`).filter((file) => file.endsWith(".js"));
         for (const file of event_files) {
@@ -16,7 +17,7 @@ module.exports = async (client) => {
             client.on(eventName, event.bind(null, client));
         }
     }
-    await ["Client", "Guild"].forEach(e => load_dir(e));
+    await ["client", "guild"].forEach(e => load_dir(e));
     for (let i = 0; i < allevents.length; i++) {
         try {
             table.addRow(allevents[i], "✔ Ready");
@@ -24,5 +25,5 @@ module.exports = async (client) => {
             console.log(String(e.stack).red);
         }
     }
-    console.log(table.toString().cyan);
+    console.log(table.toString());
 }

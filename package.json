@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Lukass-0069/Discord.js-v13-ExampleBot.git"
   },
-  "keywords" : [],
+  "keywords": [],
   "author": "Lukass#0006",
   "license": "ISC",
   "bugs": {
@@ -19,8 +19,8 @@
   "homepage": "https://github.com/Lukass-0069/Discord.js-v13-ExampleBot#readme",
   "dependencies": {
     "ascii-table": "^0.0.9",
-    "colors": "^1.4.0",
     "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
     "fs": "^0.0.1-security"
   }
 }

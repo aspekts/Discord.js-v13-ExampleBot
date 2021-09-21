@@ -9,10 +9,11 @@ table.setHeading("Slash Commands", "Status");
 
 module.exports = (client) => {
     readdirSync("./src/interactions/").forEach(dir => {
-        const interactions = readdirSync(`./src/interactions/${dir}/`).filter(file => file.endsWith(".js"));
-
+        const interactionfolder = readdirSync(`./src/interactions/${dir}/`)
+        for(let folder of interactionfolder) {
+            const interactions = readdirSync(`./src/interactions/${dir}/${folder}`)
         for (let file of interactions) {
-            let pull = require(`../interactions/${dir}/${file}`);
+            let pull = require(`../interactions/${dir}/${folder}/${file}`);
 
             if (pull.name) {
                 client.interactions.set(pull.name, pull);
@@ -27,15 +28,16 @@ module.exports = (client) => {
                 continue;
             }
 
+          }
         }
     });
 
-    console.log(table.toString().cyan);
+    console.log(table.toString());
 
     client.on("ready", async () => {
-        await client.guilds.cache.get("849979798952738847").commands.set(slash);
+        await client.application.commands.set(slash);
 
-        /* To register to every server your bot is in do: 
-        await client.application.commands.set(slash);*/
+        /* To register to specific guilds that your bot is in do: 
+        await client.guilds.cache.get("YOUR GUILD ID HERE").commands.set(slash);*/
     })
 }
