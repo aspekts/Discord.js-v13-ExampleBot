@@ -16,6 +16,10 @@ module.exports = (client) => {
 
             if (pull.name) {
                 client.interactions.set(pull.name, pull);
+                if (["MESSAGE", "USER"].includes(file.type)) delete file.description;
+                /*  Context menus use the message and user type, but dont use a description unlike slash commands, which use the CHAT_INPUT type, and has a description. Be sure to decipher between the two.
+                    See: https://discord.js.org/#/docs/main/stable/typedef/ApplicationCommandType
+                */
                 slash.push(pull);
                 table.addRow(file, '✔ Ready');
             } else {

@@ -15,7 +15,7 @@ module.exports = {
     run: async (client, interaction) => {
         const user = interaction.user;
 
-        const avatarEmed = new MessageEmbed()
+        const avatarEmbed = new MessageEmbed()
             .setTitle(`${user.tag}'s Avatar`)
             .setColor(user.displayHexColor)
             .setImage(user.displayAvatarURL({
@@ -24,7 +24,7 @@ module.exports = {
             }))
 
         interaction.followUp({
-            embeds: [avatarEmed]
+            embeds: [avatarEmbed]
         });
     }
 }
