@@ -1,7 +1,5 @@
 require('dotenv').config();
 const { Client, Collection } = require('discord.js');
-const colors = require('colors');
-
 const client = new Client({
     intents: 513
 });
@@ -15,4 +13,4 @@ client.config = require('./src/utils/Json/botconfig.json');
     require(`./src/handlers/${handler}`)(client)
 });
 
-client.login(process.env.token);
+client.login(client.config.token);
